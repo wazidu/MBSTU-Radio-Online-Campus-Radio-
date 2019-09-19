@@ -1,0 +1,513 @@
+@charset "utf-8";
+/* CSS Document */ 
+
+@media (max-width: 510px)
+{
+	#wrapper { min-width:0px;}
+	.share_channel span,.share_channel_mobile span {margin-left: 5% !important;}
+	
+	
+}
+
+@media (max-width: 767px)
+{
+
+
+#wrapper { min-width:0px;}
+
+.auto_div { width:100%;}
+
+.header_dtail { padding:30px 10px 10px;}
+
+#header { height:auto;}
+
+.listen_loGo { float:none; margin:auto; padding-bottom:20px;}
+
+.menu2 { display:none;}
+
+.menu1 { float:none; min-width:100%; margin-left:0px; border:0px; text-align:center;}
+
+.menu1 ul li { float:none; display:inline-block; line-height:13px;}
+
+.menu1 ul li a { font-size:11px; padding:0px 5px;}
+
+.item_dTail { width:100%; margin-left:0px;}
+
+.item_dTail a i span { padding-top:20px;}
+
+.item_dTail a i span b { margin-bottom:8px;}
+
+.drag_module_dtail .owl-prev { top:45px;}
+.drag_module_dtail .owl-next { top:45px;}
+
+.rDio_leFt { width:100%; float:none;}
+
+.radio_fm_lOgo a { width:100%;}
+
+
+.radio_fm_lOgo i { display:none;}
+
+.radio_fm_txt { width:calc(100% - 40px);}
+
+.radio_fm_txt label { margin-bottom:3px; padding-bottom:3px;}
+
+.radio_fm_txt p { line-height: 12px;  padding-right: 0; }
+
+.radio_fm_Head { padding-bottom:10px;}
+
+.drag_module_dtail { width:94%; margin:auto;}
+
+.container_dTail { padding:15px 10px;}
+
+.radio_fM { margin-bottom:15px;}
+
+.playlist_img { margin-right: 8px; width: 40px; }
+
+.playlist_dtail { float: left; width: calc(100% - 50px); }
+
+.recent_listing ul li { padding:10px 0px 10px ;}
+
+.playlist_dtail strong { font-size: 10px; width: 28px; }
+
+.playlist_dtail_left {  width: calc(100% - 30px); }
+
+.links_bttn a { background-size:100% 100%; height:18px; width:48px; margin-right:2px;}
+.links_bttn a:nth-of-type(2) {  background-size:100% 100%; height:18px; width: 57px; }
+.links_bttn a:nth-of-type(3) {  background-size:100% 100%; height:18px; width: 57px; }
+
+.links_bttn a:hover { background-size:100% 100%;  }
+.links_bttn a:nth-of-type(2):hover {  background-size:100% 100%; height:18px; width: 57px; }
+.links_bttn a:nth-of-type(3):hover {  background-size:100% 100%; height:18px; width: 57px; }
+
+.list_title label { font-size:12px;}
+
+.list_title a { font-size:14px;}
+
+.radio_recentlyPlay { padding: 12px 10px 0;}
+
+.radio_recentlyPlay h3 { font-size:14px;}
+
+.embed_coDe textarea { font-size:12px; padding:12px 10px;}
+
+.gallery_iTem { width:100%;}
+
+.news_head h4 { font-size:14px;}
+
+.recent_listingNews ul li { padding:10px 0px;}
+
+.gallery_iTem span a img.img_gallery {height:400px;}
+
+.gallery_iTem span a img.img_gallery_right {height:283px;}
+
+.title_here.small {
+    width: 98%;
+}
+
+
+
+
+
+.rDio_riGht { width:100%; float:none;}
+
+.follow_channel { margin-bottom: 15px;  padding: 10px; }
+
+.follow_channel label { font-size:12px;}
+
+.follow_channel ul li { margin-right:3px;}
+
+.follow_channel ul { width:auto;}
+
+.follow_channel label { width:auto;}
+
+.share_channel_mobile label { font-size:12px;}
+
+.date_time_dtail {  margin-bottom: 15px; padding: 10px; }
+
+.date_time_dtail label { width:auto; font-size:14px;}
+
+.date_time_dtail strong { font-size:14px;}
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar { width:6px !important;;}
+
+.mCSB_scrollTools {width:6px !important;}
+
+.mCSB_inside > .mCSB_container { margin-right:10px !important;}
+
+.chat_form ul li label { float:none; width:100%; padding-bottom:5px;}
+
+.chat_form ul li input[type="text"] { width:100%;}
+
+.chat_form ul li textarea  { width:100%;}
+.chat_form ul li:last-child label { display:none;}
+
+.footer_dtail {  padding: 20px 10px; }
+
+.footer_loGo {  float: none;  width: 100%; padding-bottom:20px; }
+
+.footer_loGo a { margin:auto; margin-bottom:10px;}
+
+.footer_loGo p { text-align:center;}
+
+.footer_menu { float:none; text-align:center; width:100%;}
+
+.footer_menu ul li { float:none; display:inline-block; padding-right:3px;}
+
+.footer_menu ul li a { font-size:11px; margin-right:3px;}
+
+.chat_form ul li input[type="submit"] { width:75px; height:30px;}
+
+
+.jplayerLeft { padding:0px 8px;}
+
+/**a.jp-play, a.jp-pause   { background-size:5px 8px !important;}**/
+
+a.jp-play, a.jp-pause { width:50px !important; height:50px !important;  border:2px solid #f5f5f5 !important;}
+
+div.jp-video ul.jp-controls, div.jp-interface ul.jp-controls li { margin:0px !important;}
+
+div.jp-video div.jp-type-playlist ul.jp-controls { width:61px !important;  height: 60px; !important;}
+
+.progresRight { width: calc(100% - 61px); padding:7px;}
+
+a.jp-mute {  width:18px  !important; height:20px !important;  background-size:10px 8px !important; margin-bottom:3px !important;}
+	
+a.jp-unmute{ width:18px  !important; height:20px !important;  background-size:10px 8px !important; margin-bottom:3px !important;}	
+
+div.jp-volume-bar {  height: 5px !important; margin-top: 8px !important; width: 25px !important; }
+
+.muteOuter { height:auto;}
+
+.rightSattings { float: right;  width: 65px; display: none;  }
+
+.title_radio label { background-size:21px 19px; background-position:left center;  font-family: "robotoregular"; font-size:15px; line-height: 50px;}
+
+.title_radio { padding:4px 0px 7px 5px; height: 60px; overflow:hidden; text-align: center;}
+
+.jplayerRiGht .rightSattings { width: calc(100% - 32px); }
+
+.jplayerRiGht .title_radio { height: 33px;  padding: 10px 10px 8px; }
+.jplayerRiGht .title_radio label { font-size:12px;  background-size:16px 13px;}
+
+div.jp-video div.jp-type-playlist ul.jp-controls {height: 70px; !important;}
+
+
+
+
+.youtube_video { width:33.33%; padding:0px 3px; margin:0px;}
+
+.video_title  { text-align:center;}
+
+.video_title a  { display:block; float:none;}
+
+.video_title span { float:none;}
+
+.youtube_listing ul li { padding-bottom:20px;}
+
+.scheduleTabs ul li a { font-size:8px;}
+
+.scheduleTabs ul li { width:20%;}
+
+.scheduleTabs ul li:first-child {  width: 20%; }
+
+.showListing_upHeading { float:none; width:100%; padding-bottom:10px;}
+
+.showTimeDtail { float:none; width:100%; padding-bottom:10px;}
+
+.showTimeDtail span { font-size:9px; margin-right:0px;}
+
+.showTimeDtail a { margin-top:15px; margin-right:6px; }
+
+.get_inTouch { padding:6px 6px 6px 10px;}
+
+.get_inTouch a { font-size:12px; width:115px;}
+
+.rDio_riGht .scheduleTabs ul li:first-child { width:33.33%;}
+
+.rDio_riGht .scheduleTabs ul li { width:33.33%;}
+
+.rDio_riGht .scheduleTabs ul li a { font-size:11px;}
+
+.rDio_riGht .showListing_upHeading { width:auto; display:inline-block; float:left}
+
+.rDio_riGht .showTimeDtail { float:right; width:auto;}
+
+
+
+
+
+.wealthFome_outer { width:92%; margin-left:-46%; top:1%;}
+
+.popuP_top_content { padding:10px;}
+
+.submit_comments_inner { width:100%; text-align:center;}
+
+.submit_comments_inner label { text-align:center; display:block; padding-bottom:10px; float:none;}
+
+.submit_comments_inner ul li { float:none; display:inline-block; margin:0px 3px;}
+
+.submit_comments_inner ul li a { width:80px; background-size:100%;}
+.submit_comments_inner ul li:nth-of-type(2) a{ width:80px; background-size:100%;}
+.submit_comments_inner ul li:nth-of-type(3) a { width:80px; background-size:100%;}
+
+.submit_comments_inner ul { float:none; width:100%;}
+
+.submit_comments_inner ul li:last-child { float:none; display:inline-block;}
+
+
+.posting_dtail { width:100%; float:none;}
+
+.p0puP_forM { padding:20px 10px;}
+
+.posting_dtail ul li label { padding-bottom:5px; display:block; float:none; width:100%;}
+
+.posting_dtail ul li input, .posting_dtail ul li textarea { float:none; width:100%;}
+
+
+.posting_dtail ul li p { float:none;}
+
+
+.cmntPlugin .fb_iframe_widget{width: 80% !important; }
+
+.cmntPlugin .fb_iframe_widget span {
+    width: 100% !important; margin:auto;
+}
+
+
+
+.share_channel_mobile span{
+    margin-left: 15%;
+}
+
+.popuP_top_content .news_mid img{
+	height:383px;
+}
+
+.progresRight{border-right:none;}
+
+.share_channel{display:none;}
+
+.share_channel_mobile{display:block;}
+
+div#follow_channel_mobile{display: block;}
+
+div#follow_channel{display:none;}
+
+div#dateclock{display:none;}
+
+div#dateclock_mobile{display:block;}
+
+
+
+.in_frame_top_mobile{display:block;}
+
+.in_frame_top{display:none;}
+
+.in_frame_mobile,.in_frame_mobile_general{display:block;}
+.in_frame,.in_frame_general{display:none;}
+
+.title_radio label{
+		display:inline;
+	}
+
+}
+@media (min-width: 768px) and (max-width: 959px) {  
+
+#wrapper { min-width:0px;}
+
+.header_dtail { padding:0px 10px;}
+
+.listen_loGo { padding-top: 8px;  width: 13%; }
+
+.listen_loGo a { width:100%; height:auto;}
+
+.menu1 ul li a {  font-size: 12px; padding: 0 10px; text-align: center; }
+
+.menu1 { margin-left:20px; min-width:auto;}
+
+.auto_div { width:100%;}
+
+.menu2 { min-width:auto;}
+
+.menu2 ul li a { width:40px; font-size:12px;}
+
+.menu2 ul li:nth-of-type(2) a { width:68px; font-size:12px;}
+.menu2 ul li:nth-of-type(3) a { width:68px; font-size:12px;}
+.menu2 ul li:nth-of-type(4) a { width:68px; font-size:12px;}
+
+.item_dTail { margin: auto; width: 96%; }
+
+.item_dTail a i span { font-size:10px; padding-top:4px;}
+.item_dTail a i span b { margin-bottom:2px;}
+
+
+
+
+.rDio_leFt { width: 62%; }
+
+.rDio_riGht {  width: 36%; }
+
+.radio_fm_lOgo i { background-size: 100% 100%;  height: 64px; right: -5px;  width: 6px; }
+
+.radio_fm_txt {  padding: 8px 20px 0 10px;  width: calc(100% - 65px); }
+
+.radio_fm_Head { padding-bottom:10px;}
+
+.playlist_dtail { width: calc(100% - 18px); }
+
+.recent_listing ul li { padding: 6px 10px 6px 0; }
+
+.gallery_iTem { width: 97%; }
+
+.follow_channel label { width:100%; padding-bottom:5px; float:none;}
+
+.follow_channel ul { float:none; width:100%;}
+
+.date_time_dtail strong { width:98px;}
+
+.date_time_dtail { padding:10px;}
+
+.date_time_dtail label { width:auto; font-size:13px; padding-top:3px;}
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_draggerRail, .mCS-dark-thick.mCSB_scrollTools .mCSB_draggerRail { width:6px !important;;}
+.mCS-light-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {width:6px !important;;}
+.mCS-light-thick.mCSB_scrollTools .mCSB_draggerRail, .mCS-dark-thick.mCSB_scrollTools .mCSB_draggerRail {width:6px !important;;}
+.mCSB_scrollTools {width:6px !important;;}
+.mCSB_inside > .mCSB_container { margin-right: 15px; }
+
+.chat_form ul li label { width:100%; float:none; padding-bottom:5px;}
+
+.chat_form ul li input[type="text"], .chat_form ul li textarea { width:100%;}
+
+.chat_form ul li:last-child label { display:none;}
+
+
+.footer_dtail { padding: 20px 15px; }
+
+.container_dTail, .drag_module { width:96%; margin:auto;}
+
+ 
+div.jp-video ul.jp-controls, div.jp-interface ul.jp-controls li { margin:0px !important; width: 46px!important;}
+
+.rightSattings { width:111px; float:right;}
+
+.progresRight {  width: calc(100% - 157px); }
+
+.jplayerLeft {  padding: 0 8px; }
+
+.title_radio label { background-position:left top; font-size:12px;}
+
+.jplayerRiGht .rightSattings {  width: calc(100% - 50px); float:left; }
+
+.share_channel span ,.share_channel_mobile span  {
+    margin-left: 15%;
+}
+
+
+
+
+
+.youtube_video { 
+    margin-right: 0;
+    padding: 0 5px;
+    width: 33.33%;
+}
+
+.video_title a { font-size:9px;}
+
+.scheduleTabs ul li { width:20%;}
+
+.scheduleTabs ul li:first-child {  width: 20%; }
+
+.scheduleTabs ul li a { font-size:10px;}
+
+.showListing_upHeading { width:auto;}
+
+.showTimeDtail span { margin-right:0px;}
+
+
+.share_channel span ,.share_channel_mobile span{ margin-left:3%;}
+
+.radio_recentlyPlay.rightGalery .gallery_iTem {
+    padding: 0 3px;
+    width: 100%;
+}
+
+.reQuestSongs { padding:6px 10px 6px 6px;}
+
+.reQuestSongs label { font-size:14px;}
+
+.reQuestSongs a { font-size:12px; width:120px;}
+
+.rDio_riGht .radio_recentlyPlay h3 { font-size:14px;}
+
+.rDio_riGht .news_head h4 {
+    color: #000;
+    display: inline-block;
+    font-size: 14px;
+    width: 84%;
+}
+.rDio_riGht .playlist_dtail strong { padding-top:0px;}
+
+.rDio_riGht .links_bttn a { margin-bottom:5px;}
+
+.get_inTouch { 
+    padding: 6px 6px 6px 10px; 
+}
+
+.get_inTouch label { font-size:14px;}
+
+.get_inTouch a { font-size:10px; width:148px;}
+
+
+.rDio_riGht .scheduleTabs ul li:first-child { width:33.33%;}
+.rDio_riGht .scheduleTabs ul li { width:33.33%;}
+
+.rDio_riGht .scheduleDtailHead h3 { font-size:12px;}
+
+
+
+
+.wealthFome_outer { 
+    margin-left: -45%; 
+    width: 90%; 
+}
+
+
+.cmntPlugin .fb_iframe_widget span {
+    width: 262px !important;
+}
+
+popuP_top_content .news_mid img {height:400px;}
+
+
+}
+
+@media (min-width: 1270px){ 
+.in_frame_left {display:inline-block;width:300px;float:left;margin-top: 10px;}
+
+#wrapper.warpper-left {width:1270px !important;margin:0 auto;}
+#container { width:auto; margin-top:10px;}
+.container_left_ad {display:inline-block; margin-left: auto;margin-right: auto;position:absolute;}
+}
+
+
+.frame_mobile_top, .frame_mobile_middle { display:none; }
+@media (max-width:767px) { 
+.frame_mobile_top {display:inline-block; min-width:300px ;max-width: 767px; width: 100%; height:100px} 
+.frame_mobile_middle {display:inline-block; min-width:300px ;max-width: 767px; width: 100%; min-height:250px; max-height:280px; height:100%} 
+}
+
+.frame_desktop_top {display:inline-block; min-width:728px ;max-width: 970px; width: 100%; height:90px }
+@media (max-width:767px) { 
+.frame_desktop_top { display:none; }
+}
+
+.frame_desktop_square {display:inline-block; min-width:250px ;max-width: 350px; width: 100%; height:280px;}
+@media (max-width:767px) { 
+.frame_desktop_square { display:none; }
+}
+
+.frame_desktop_player {display:inline-block; min-width:435px ;max-width: 560px; width: 100%; height:60px;}
+@media (max-width:767px) { 
+.frame_desktop_player { display:none; }
+}

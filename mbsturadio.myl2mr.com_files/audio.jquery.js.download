@@ -1,0 +1,110 @@
+   var urlstream=$("#urladdress").html(); 
+   
+  new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_1",
+		cssSelectorAncestor: "#jp_container_1"
+	}, [
+		 
+ 		{
+ 			mp3:urlstream,
+ 		} 
+ 		
+	], {
+		playlistOptions: {
+		    autoPlay: true
+		  },
+		swfPath: "js",
+		supplied: "mp3,",
+		smoothPlayBar: true,
+		keyEnabled: true,
+		audioFullScreen: true
+	});
+	
+getMoreRecentSongs();    
+var LoopSong = setInterval(getMoreRecentSongs,600000);
+var flagChangeTimeOut=0;
+var define_num_listeners=3;
+function getMoreRecentSongs(){
+	var formdata = new FormData();
+	formdata.append('action', 'getRadioRecentSongs');
+	$.ajax({
+		type: "POST",
+		url:"getRecentSong.ajax.php",
+		contentType: false,
+		processData: false,
+		 data: formdata,
+		success: function(res) {
+			var json=$.parseJSON(res);
+			CurrentSongListenersHtml(json);
+			//console.log(json);
+			var d = new Date();
+				 //console.log(d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
+			//console.log(json.current_listeners);
+			if (json.current_listeners>=define_num_listeners && flagChangeTimeOut<define_num_listeners){
+				flagChangeTimeOut=json.current_listeners;
+				 //console.log('updated to 20');
+				 var d = new Date();
+				 //console.log(d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
+				 clearInterval(LoopSong);
+				 LoopSong = setInterval(getMoreRecentSongs,120000);
+				 
+			}
+			else if (json.current_listeners<=define_num_listeners && flagChangeTimeOut>define_num_listeners){
+				flagChangeTimeOut=json.current_listeners;
+				 console.log('updated to 10');
+				  var d = new Date();
+				 console.log(d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
+				 clearInterval(LoopSong);
+				LoopSong = setInterval(getMoreRecentSongs,600000);
+				 
+			}
+			
+		},       
+		error: function(res) {
+
+		 }       
+	 });	
+}
+
+function CurrentSongListenersHtml(json){
+	if (json.status=='error'){
+				$("#recentlyPlaySongs").css("display","none");
+				$(".title_radio label").html(json.message); 
+			}else if(json.status=='success' && (json.display=='both')){	
+				$("#recentlyPlaySongs").css("display","block");
+				$("#owl-demo2").html("");
+				$("#owl-demo2").append(json.html);
+				destroyOwlCarousel();
+				$("#owl-demo2").owlCarousel({
+ 
+					navigation : true, // Show next and prev buttons
+					slideSpeed : 300,
+					paginationSpeed : 400,
+					singleItem:true
+				 
+				 
+				  });
+				  $(".title_radio label").html("Current Listeners: "+json.current_listeners);
+			}else if (json.status=='success' && json.display=='song_name'){
+				$("#recentlyPlaySongs").css("display","block");
+				$("#owl-demo2").html("");
+				$("#owl-demo2").append(json.html);
+				destroyOwlCarousel();
+				$("#owl-demo2").owlCarousel({
+ 
+					navigation : true, // Show next and prev buttons
+					slideSpeed : 300,
+					paginationSpeed : 400,
+					singleItem:true
+				 
+				 
+				  });
+				  $(".title_radio label").html("");
+			}else if (json.status=='success' && json.display=='listeners_num'){
+				$("#recentlyPlaySongs").css("display","none");				
+				$(".title_radio label").html("Current Listeners: "+json.current_listeners);
+			}else {//if (json.status=='success' && json.message=='listeners_num')
+				$("#recentlyPlaySongs").css("display","none");
+				$(".title_radio label").html(""); 
+			}
+}

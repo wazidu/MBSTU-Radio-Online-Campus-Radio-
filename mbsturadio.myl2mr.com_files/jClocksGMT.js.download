@@ -1,0 +1,562 @@
+
+function worldClock(zone, region){
+	var dst = 0
+	var time = new Date()
+	var gmtMS = time.getTime() + (time.getTimezoneOffset() * 60000)
+	var gmtTime = new Date(gmtMS)
+	var day = gmtTime.getDate()
+	var month = gmtTime.getMonth()
+	var year = gmtTime.getYear()
+	if(year < 1000){
+	year += 1900
+}
+var monthArray = new Array("January", "February", "March", "April", "May", "June", "July", "August", 
+				"September", "October", "November", "December")
+var monthDays = new Array("31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31")
+if (year%4 == 0){
+	monthDays = new Array("31", "29", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31")
+}
+if(year%100 == 0 && year%400 != 0){
+	monthDays = new Array("31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31")
+}
+
+var hr = gmtTime.getHours() + zone
+var min = gmtTime.getMinutes()
+var sec = gmtTime.getSeconds()
+
+	  if (hr %1) {
+        if (min < 30) {
+            hr = hr-0.5
+            min = min+30
+        } else {
+            hr = hr+0.5
+            min = min-30
+        }
+    }
+	if (hr >= 24){
+	hr = hr-24
+	day -= -1
+	}
+	if (hr < 0){
+	hr -= -24
+	day -= 1
+	}
+	if (hr < 10){
+	hr = " " + hr
+	}
+	if (min < 10){
+	min = "0" + min
+	}
+	if (sec < 10){
+	sec = "0" + sec
+	}
+	
+
+    
+	if (day <= 0){
+	if (month == 0){
+		month = 11
+		year -= 1
+		}
+		else{
+		month = month -1
+		}
+	day = monthDays[month]
+	}
+	if(day > monthDays[month]){
+		day = 1
+		if(month == 11){
+		month = 0
+		year -= -1
+		}
+		else{
+		month -= -1
+		}
+	}
+if (region == "NAmerica"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(3)
+	startDST.setHours(2)
+	startDST.setDate(1)
+	var dayDST = startDST.getDay()
+	if (dayDST != 0){
+		startDST.setDate(8-dayDST)
+		}
+		else{
+		startDST.setDate(1)
+		}
+	endDST.setMonth(9)
+	endDST.setHours(1)
+	endDST.setDate(31)
+	dayDST = endDST.getDay()
+	endDST.setDate(31-dayDST)
+	var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST && currentTime < endDST){
+		dst = 1
+		}
+}
+if (region == "Europe"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(2)
+	startDST.setHours(1)
+	startDST.setDate(31)
+	var dayDST = startDST.getDay()
+	startDST.setDate(31-dayDST)
+	endDST.setMonth(9)
+	endDST.setHours(0)
+	endDST.setDate(31)
+	dayDST = endDST.getDay()
+	endDST.setDate(31-dayDST)
+	var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST && currentTime < endDST){
+		dst = 1
+		}
+}
+
+if (region == "SAmerica"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(9)
+	startDST.setHours(0)
+	startDST.setDate(1)
+	var dayDST = startDST.getDay()
+	if (dayDST != 0){
+		startDST.setDate(22-dayDST)
+		}
+		else{
+		startDST.setDate(15)
+		}
+	endDST.setMonth(1)
+	endDST.setHours(11)
+	endDST.setDate(1)
+	dayDST = endDST.getDay()
+	if (dayDST != 0){
+		endDST.setDate(21-dayDST)
+		}
+		else{
+		endDST.setDate(14)
+		}
+	var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST || currentTime < endDST){
+		dst = 1
+		}
+}
+if (region == "Cairo"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(3)
+	startDST.setHours(0)
+	startDST.setDate(30)
+	var dayDST = startDST.getDay()
+	if (dayDST < 5){
+		startDST.setDate(28-dayDST)
+		}
+		else {
+		startDST.setDate(35-dayDST)
+		}
+	endDST.setMonth(8)
+	endDST.setHours(11)
+	endDST.setDate(30)
+	dayDST = endDST.getDay()
+	if (dayDST < 4){
+		endDST.setDate(27-dayDST)
+		}
+		else{
+		endDST.setDate(34-dayDST)
+		}
+	var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST && currentTime < endDST){
+		dst = 1
+		}
+}
+if (region == "Israel"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(3)
+	startDST.setHours(2)
+	startDST.setDate(1)
+	endDST.setMonth(8)
+	endDST.setHours(2)
+	endDST.setDate(25)
+	dayDST = endDST.getDay()
+	if (dayDST != 0){
+	endDST.setDate(32-dayDST)
+	}
+	else{
+	endDST.setDate(1)
+	endDST.setMonth(9)
+	}
+	var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST && currentTime < endDST){
+		dst = 1
+		}
+}
+if (region == "Beirut"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(2)
+	startDST.setHours(0)
+	startDST.setDate(31)
+	var dayDST = startDST.getDay()
+	startDST.setDate(31-dayDST)
+	endDST.setMonth(9)
+	endDST.setHours(11)
+	endDST.setDate(31)
+	dayDST = endDST.getDay()
+	endDST.setDate(30-dayDST)
+	var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST && currentTime < endDST){
+		dst = 1
+		}
+}
+if (region == "Baghdad"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(3)
+	startDST.setHours(3)
+	startDST.setDate(1)
+	endDST.setMonth(9)
+	endDST.setHours(3)
+	endDST.setDate(1)
+	dayDST = endDST.getDay()
+		var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST && currentTime < endDST){
+		dst = 1
+		}
+}
+if (region == "Australia"){
+	var startDST = new Date()
+	var endDST = new Date()
+	startDST.setMonth(9)
+	startDST.setHours(2)
+	startDST.setDate(31)
+	var dayDST = startDST.getDay()
+	startDST.setDate(31-dayDST)
+	endDST.setMonth(2)
+	endDST.setHours(2)
+	endDST.setDate(31)
+	dayDST = endDST.getDay()
+	endDST.setDate(31-dayDST)
+	var currentTime = new Date()
+	currentTime.setMonth(month)
+	currentTime.setYear(year)
+	currentTime.setDate(day)
+	currentTime.setHours(hr)
+	if(currentTime >= startDST || currentTime < endDST){
+		dst = 1
+		}
+}
+
+if (dst == 1){
+	hr -= -1
+	if (hr >= 24){
+	hr = hr-24
+	day -= -1
+	}
+	if (hr < 10){
+	hr = " " + hr
+	}
+	if(day > monthDays[month]){
+	day = 1
+	if(month == 11){
+	month = 0
+	year -= -1
+	}
+	else{
+	month -= -1
+	}
+	}
+	document.getElementById("dateclock_mobile").innerHTML="<label>" + monthArray[month] + " " + day + ", " + year + "</label><strong>" + hr + ":" + min + ":" + sec + " DST" + "</strong>";
+return "<label>" + monthArray[month] + " " + day + ", " + year + "</label><strong>" + hr + ":" + min + ":" + sec + " DST" + "</strong>"
+}
+else{
+	document.getElementById("dateclock_mobile").innerHTML="<label>" + monthArray[month] + " " + day + ", " + year + "</label><strong>" + hr + ":" + min + ":" + sec + "</strong>";
+return "<label>" + monthArray[month] + " " + day + ", " + year + "</label><strong>" + hr + ":" + min + ":" + sec + "</strong>"
+}
+}
+
+function worldClockZone(worldzone){
+	switch (worldzone){
+		case 'Midway':	
+			document.getElementById("dateclock").innerHTML=worldClock(-11, "NAmerica");
+		break;
+		case 'Etc/GMT-10':	
+			document.getElementById("dateclock").innerHTML=worldClock(-10, "NAmerica");
+		break;
+		case 'Marquesas':
+			document.getElementById("dateclock").innerHTML=worldClock(-9.5, "NAmerica");
+		break;
+		case 'Anchorage':
+			document.getElementById("dateclock").innerHTML=worldClock(-9, "NAmerica");
+		break;
+		case 'Vancouver':	
+			document.getElementById("dateclock").innerHTML=worldClock(-8, "NAmerica");
+		break;
+		case 'SanFrancisco':	
+			document.getElementById("dateclock").innerHTML=worldClock(-8, "NAmerica");
+		break;
+		case 'Seattle':	
+			document.getElementById("dateclock").innerHTML=worldClock(-8, "NAmerica");
+		break;
+		case 'LosAngeles':	
+			document.getElementById("dateclock").innerHTML=worldClock(-8, "NAmerica");
+		break;
+		case 'Denver':	
+			document.getElementById("dateclock").innerHTML=worldClock(-7, "NAmerica");
+		break;
+		case 'MexicoCity':	
+			document.getElementById("dateclock").innerHTML=worldClock(-6, "NAmerica");
+		break;
+		case 'Houston':	
+			document.getElementById("dateclock").innerHTML=worldClock(-6, "NAmerica");
+		break;
+		case 'Minneapolis':	
+			document.getElementById("dateclock").innerHTML=worldClock(-6, "NAmerica");
+		break;
+		case 'NewOrleans':	
+			document.getElementById("dateclock").innerHTML=worldClock(-6, "NAmerica");
+		break;
+		case 'Chicago':	
+			document.getElementById("dateclock").innerHTML=worldClock(-6, "NAmerica");
+		break;
+		case 'SanFrancisco':	
+			document.getElementById("dateclock").innerHTML=worldClock(-6, "NAmerica");
+		break;
+		case 'Montgomery':	
+			document.getElementById("dateclock").innerHTML=worldClock(-6, "NAmerica");
+		break;
+		case 'Indianapolis':	
+			document.getElementById("dateclock").innerHTML=worldClock(-5, "NAmerica");
+		break;
+		case 'Atlanta':	
+			document.getElementById("dateclock").innerHTML=worldClock(-5, "NAmerica");
+		break;
+		case 'Detroit':	
+			document.getElementById("dateclock").innerHTML=worldClock(-5, "NAmerica");
+		break;
+		case 'Miami':	
+			document.getElementById("dateclock").innerHTML=worldClock(-5, "NAmerica");
+		break;
+		case 'WashingtonDC':	
+			document.getElementById("dateclock").innerHTML=worldClock(-5, "NAmerica");
+		break;
+		case 'Philadelphia':	
+			document.getElementById("dateclock").innerHTML=worldClock(-5, "NAmerica");
+		break;
+		case 'NewYork':	
+			document.getElementById("dateclock").innerHTML=worldClock(-5, "NAmerica");
+		break;
+		case 'Montreal':	
+			document.getElementById("dateclock").innerHTML=worldClock(-5, "NAmerica");
+		break;
+		case 'Boston':	
+			document.getElementById("dateclock").innerHTML=worldClock(-5, "NAmerica");
+		break;
+		case 'Caracas':	
+			document.getElementById("dateclock").innerHTML=worldClock(-4.5, "NAmerica");
+		break;
+		case 'Santiago':	
+			document.getElementById("dateclock").innerHTML=worldClock(-4, "NAmerica");
+		break;
+		case 'St_Johns':	
+			document.getElementById("dateclock").innerHTML=worldClock(-3.5, "BuenosAires");
+		break;
+		case 'BuenosAires':	
+			document.getElementById("dateclock").innerHTML=worldClock(-3, "BuenosAires");
+		break;
+		case 'SaoPaulo':	
+			document.getElementById("dateclock").innerHTML=worldClock(-3, "SAmerica");
+		break;
+		case 'RioDeJaneiro':	
+			document.getElementById("dateclock").innerHTML=worldClock(-3, "SAmerica");
+		break;
+		case 'Brasilia':	
+			document.getElementById("dateclock").innerHTML=worldClock(-3, "SAmerica");
+		break;
+		case 'Noronha':	
+			document.getElementById("dateclock").innerHTML=worldClock(-2, "SAmerica");
+		break;
+		case 'Cape_Verde':	
+			document.getElementById("dateclock").innerHTML=worldClock(-1, "Europe");
+		break;
+		case 'Lisbon':	
+			document.getElementById("dateclock").innerHTML=worldClock(0, "Europe");
+		break;
+		case 'Dublin':	
+			document.getElementById("dateclock").innerHTML=worldClock(0, "Europe");
+		break;
+		case 'London':	
+			document.getElementById("dateclock").innerHTML=worldClock(0, "Europe");
+		break;
+		case 'Madrid':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Barcelona':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Paris':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Brussels':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Amsterdam':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Frankfurt':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Rome':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Berlin':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Prague':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Vienna':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Stockholm':	
+			document.getElementById("dateclock").innerHTML=worldClock(1, "Europe");
+		break;
+		case 'Athens':	
+			document.getElementById("dateclock").innerHTML=worldClock(2, "Europe");
+		break;
+		case 'Helsinki':	
+			document.getElementById("dateclock").innerHTML=worldClock(2, "Europe");
+		break;
+		case 'Minsk':	
+			document.getElementById("dateclock").innerHTML=worldClock(2, "Europe");
+		break;
+		case 'Istanbul':	
+			document.getElementById("dateclock").innerHTML=worldClock(2, "Europe");
+		break;
+		case 'Cairo':	
+			document.getElementById("dateclock").innerHTML=worldClock(2, "Europe");
+		break;
+		case 'Jerusalem':	
+			document.getElementById("dateclock").innerHTML=worldClock(2, "Europe");
+		break;
+		case 'Beirut':	
+			document.getElementById("dateclock").innerHTML=worldClock(2, "Europe");
+		break;
+		case 'Moscow':	
+			document.getElementById("dateclock").innerHTML=worldClock(3, "Europe");
+		break;
+		case 'Baghdad':	
+			document.getElementById("dateclock").innerHTML=worldClock(3, "Europe");
+		break;
+		case 'Tehran':	
+			document.getElementById("dateclock").innerHTML=worldClock(3.5, "Europe");
+		break;
+		case 'Dubai':	
+			document.getElementById("dateclock").innerHTML=worldClock(4, "Europe");
+		break;
+		case 'Kabul':	
+			document.getElementById("dateclock").innerHTML=worldClock(4.5, "Europe");
+		break;
+		case 'Tashkent':	
+			document.getElementById("dateclock").innerHTML=worldClock(5, "Europe");
+		break;
+		case 'Kolkata':	
+			document.getElementById("dateclock").innerHTML=worldClock(5.5, "Europe");
+		break;
+		case 'Novosibirsk':	
+			document.getElementById("dateclock").innerHTML=worldClock(6, "Europe");
+		break;
+		case 'Rangoon':	
+			document.getElementById("dateclock").innerHTML=worldClock(6.5, "Europe");
+		break;
+		case 'Bangkok':	
+			document.getElementById("dateclock").innerHTML=worldClock(7, "Europe");
+		break;
+		case 'Jakarta':	
+			document.getElementById("dateclock").innerHTML=worldClock(7, "Europe");
+		break;
+		case 'HongKong':	
+			document.getElementById("dateclock").innerHTML=worldClock(8, "Europe");
+		break;
+		case 'Beijing':	
+			document.getElementById("dateclock").innerHTML=worldClock(8, "Europe");
+		break;
+		case 'Shanghai':	
+			document.getElementById("dateclock").innerHTML=worldClock(8, "Europe");
+		break;
+		case 'Seoul':	
+			document.getElementById("dateclock").innerHTML=worldClock(9, "Europe");
+		break;
+		case 'Tokyo':	
+			document.getElementById("dateclock").innerHTML=worldClock(9, "Europe");
+		break;
+		case 'Adelaide':	
+			document.getElementById("dateclock").innerHTML=worldClock(9.5, "Europe");
+		break;
+		case 'Melbourne':	
+			document.getElementById("dateclock").innerHTML=worldClock(10, "Europe");
+		break;
+		case 'Sydney':	
+			document.getElementById("dateclock").innerHTML=worldClock(10, "Europe");
+		break;
+		case 'Brisbane':	
+			document.getElementById("dateclock").innerHTML=worldClock(10, "Europe");
+		break;
+		case 'Vladivostok':	
+			document.getElementById("dateclock").innerHTML=worldClock(10, "Europe");
+		break;
+		case 'Lord_Howe':	
+			document.getElementById("dateclock").innerHTML=worldClock(10.5, "Europe");
+		break;
+		case 'Etc/GMT-11':	
+			document.getElementById("dateclock").innerHTML=worldClock(11, "Europe");
+		break;
+		case 'Norfolk':	
+			document.getElementById("dateclock").innerHTML=worldClock(11.5, "Europe");
+		break;
+		case 'Kamchatka':	
+			document.getElementById("dateclock").innerHTML=worldClock(12, "Europe");
+		break;
+		default:	
+			document.getElementById("dateclock").innerHTML=worldClock(0, "Greenwich");
+		break;
+	}
+		
+setTimeout("worldClockZone('"+worldzone+"')", 1000)
+}
+$(document).ready(function(){
+worldClockZone(document.getElementById("radio_gmt").innerHTML);
+});
+
+
+
